@@ -14,7 +14,12 @@ public MyWindowApp(){
   }
 
   public static void main(String[] args) { 
-    MyWindowApp app = new MyWindowApp(); 
-    app.setVisible(true); 
+	  
+    MyWindowApp myEdit = new MyWindowApp(); 
+    myEdit.setVisible(true); 
+    MyWindowApp myLog = new MyWindowApp(); 
+    myLog.setVisible(true); 
+    MyWindowApp winda = new MyWindowApp(); 
+    winda.setVisible(true); 
   }
 }
