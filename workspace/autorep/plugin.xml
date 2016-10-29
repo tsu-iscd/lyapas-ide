@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         point="org.eclipse.ui.perspectives">
+      <perspective
+            class="autorep.perspectives.MyPerspective"
+            id="autorep.perspectives.emptyperspective"
+            name="New Perspective">
+      </perspective>
+   </extension>
+   <extension
+         point="org.eclipse.ui.editors">
+      <editor
+            class="autorep.editors.MyEditor"
+            contributorClass="org.eclipse.ui.texteditor.BasicTextEditorActionContributor"
+            extensions="lyapas"
+            icon="icons/sample.gif"
+            id="autorep.editors.MyEditor"
+            name="Simple Editor">
+      </editor>
+   </extension>
+
+</plugin>
