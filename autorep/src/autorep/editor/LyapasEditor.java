@@ -1,12 +1,12 @@
-package zazazazaza.editors;
+package autorep.editor;
 
 import org.eclipse.ui.editors.text.TextEditor;
 
-public class XMLEditor extends TextEditor {
+public class LyapasEditor extends TextEditor {
 
 	private ColorManager colorManager;
 
-	public XMLEditor() {
+	public LyapasEditor() {
 		super();
 		colorManager = new ColorManager();
 		setSourceViewerConfiguration(new XMLConfiguration(colorManager));

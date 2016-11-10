@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+
+   <extension
+         point="org.eclipse.ui.editors">
+      <editor
+            name="Lyapas Editor"
+            extensions="lyapas"
+            icon="icons/sample.gif"
+            contributorClass="org.eclipse.ui.texteditor.BasicTextEditorActionContributor"
+            class="autorep.editor.LyapasEditor"
+            id="autorep.editor.LyapasEditor">
+      </editor>
+   </extension>
+   <extension
+         point="org.eclipse.ui.views">
+      <view
+            class="autorep.OurLog"
+            id="autorep.views.log"
+            name="Log"
+            restorable="true">
+      </view>
+      <view
+            class="autorep.LyapasSymbols"
+            id="autorep.views.window"
+            name="Symbols"
+            restorable="true">
+      </view>
+   </extension>
+   <extension
+         point="org.eclipse.ui.perspectiveExtensions">
+      <perspectiveExtension
+            targetID="autorep.perspective">
+         <view
+               id="autorep.views.window"
+               minimized="false"
+               relationship="right"
+               relative="org.eclipse.ui.editorss">
+         </view>
+      </perspectiveExtension>
+   </extension>
+   <extension
+         point="org.eclipse.ui.perspectives">
+      <perspective
+            class="autorep.LyapasPersp"
+            id="autorep.perspective"
+            name="Lyapas IDE">
+      </perspective>
+   </extension>
+
+</plugin>

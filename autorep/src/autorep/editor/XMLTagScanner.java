@@ -1,4 +1,4 @@
-package zazazazaza.editors;
+package autorep.editor;
 
 import org.eclipse.jface.text.*;
 import org.eclipse.jface.text.rules.*;

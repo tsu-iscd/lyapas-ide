@@ -1,4 +1,4 @@
-package zazazazaza.editors;
+package autorep.editor;
 
 import java.util.HashMap;
 import java.util.Iterator;
