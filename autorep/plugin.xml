@@ -36,6 +36,12 @@
                id="autorep.views.window"
                minimized="false"
                relationship="right"
+               relative="autorep.views.log">
+         </view>
+         <view
+               id="autorep.views.log"
+               minimized="false"
+               relationship="bottom"
                relative="org.eclipse.ui.editorss">
          </view>
       </perspectiveExtension>
