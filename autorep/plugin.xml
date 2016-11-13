@@ -16,14 +16,14 @@
    <extension
          point="org.eclipse.ui.views">
       <view
-            class="autorep.OurLog"
-            id="autorep.views.log"
+            class="autorep.views.log.OurLog"
+            id="autorep.views.log.OurLog"
             name="Log"
             restorable="true">
       </view>
       <view
-            class="autorep.LyapasSymbols"
-            id="autorep.views.window"
+            class="autorep.views.window.LyapasSymbols"
+            id="autorep.views.window.LyapasSymbols"
             name="Symbols"
             restorable="true">
       </view>
@@ -31,15 +31,15 @@
    <extension
          point="org.eclipse.ui.perspectiveExtensions">
       <perspectiveExtension
-            targetID="autorep.perspective">
+            targetID="autorep.perspective.LyapasPersp">
          <view
-               id="autorep.views.window"
+               id="autorep.views.window.LyapasSymbols"
                minimized="false"
                relationship="right"
-               relative="autorep.views.log">
+               relative="autorep.views.log.OurLog">
          </view>
          <view
-               id="autorep.views.log"
+               id="autorep.views.log.OurLog"
                minimized="false"
                relationship="bottom"
                relative="org.eclipse.ui.editorss">
@@ -49,8 +49,8 @@
    <extension
          point="org.eclipse.ui.perspectives">
       <perspective
-            class="autorep.LyapasPersp"
-            id="autorep.perspective"
+            class="autorep.perspective.LyapasPersp"
+            id="autorep.perspective.LyapasPersp"
             name="Lyapas IDE">
       </perspective>
    </extension>

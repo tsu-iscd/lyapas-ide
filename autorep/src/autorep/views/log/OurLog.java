@@ -1,4 +1,4 @@
-package autorep;
+package autorep.views.log;
 
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.ui.part.ViewPart;
