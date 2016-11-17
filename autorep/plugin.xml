@@ -5,9 +5,9 @@
    <extension
          point="org.eclipse.ui.editors">
       <editor
-            name="Lyapas Editor"
-            extensions="lyapas"
-            icon="icons/sample.gif"
+            name="LYaPAS Editor"
+            extensions="l"
+            icon="icons/logo.gif"
             contributorClass="org.eclipse.ui.texteditor.BasicTextEditorActionContributor"
             class="autorep.editor.LyapasEditor"
             id="autorep.editor.LyapasEditor">
