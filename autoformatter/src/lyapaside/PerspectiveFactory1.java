@@ -17,7 +17,7 @@ public class PerspectiveFactory1 implements IPerspectiveFactory {
 		bottom.addView("org.eclipse.pde.runtime.LogView");
 		
 		ILog log = Activator.getDefault().getLog();
-		IStatus status = new Status(IStatus.INFO, Activator.PLUGIN_ID, "Test Message");
+		IStatus status = new Status(IStatus.INFO, Activator.PLUGIN_ID, "Lyapas Perspective is chosen");
 		log.log(status);
 	}
 
