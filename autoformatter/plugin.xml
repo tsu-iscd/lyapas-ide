@@ -46,7 +46,7 @@
                id="LyapasIDE.toolbar1">
             <command
                   commandId="LyapasIDE.command1"
-                  icon="icons/sample.gif"
+                  icon="icons/sample.png"
                   tooltip="Autoformat">
             </command>
          </toolbar>
