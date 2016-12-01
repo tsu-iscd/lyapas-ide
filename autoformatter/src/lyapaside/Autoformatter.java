@@ -6,7 +6,7 @@ import lyapaside.Formatter;
 public class Autoformatter {
 	public static String Format(String str)
 	{
-		List<Formatter> formatters = new List<Formatter>(); // вроде все правильно, но эклипс почему-то ругается
+		List<Formatter> formatters = new ArrayList<Formatter>();
 		String result = str;
 		
 		formatters.add(new FormatterExample()); // так добавляются форматеры в автоформатер

@@ -7,6 +7,7 @@ Bundle-Activator: lyapaside.Activator
 Require-Bundle: org.eclipse.ui,
  org.eclipse.core.runtime,
  org.eclipse.core.resources;bundle-version="3.8.1",
- org.eclipse.jface.text;bundle-version="3.8.1"
+ org.eclipse.jface.text;bundle-version="3.8.1",
+ org.eclipse.ui.workbench.texteditor;bundle-version="3.8.0"
 Bundle-ActivationPolicy: lazy
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
