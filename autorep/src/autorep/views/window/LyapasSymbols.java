@@ -4,9 +4,12 @@ import org.eclipse.swt.widgets.Composite;
 import org.eclipse.ui.part.ViewPart;
 import org.eclipse.jface.viewers.ArrayContentProvider;
 import org.eclipse.jface.viewers.ColumnLabelProvider;
+import org.eclipse.jface.viewers.ColumnViewerToolTipSupport;
 import org.eclipse.jface.viewers.TableViewer;
 import org.eclipse.jface.viewers.TableViewerColumn;
+import org.eclipse.jface.window.ToolTip;
 import org.eclipse.swt.SWT;
+import org.eclipse.swt.graphics.Point;
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Label;
@@ -58,15 +61,18 @@ public class LyapasSymbols extends ViewPart {
                 viewer.getControl().setLayoutData(gridData);
         }
 
+        
         public TableViewer getViewer() {
                 return viewer;
         }
 
+        
         // create the columns for the table
         private void createColumns(final Composite parent, final TableViewer viewer) {
                 String[] titles = { "Symbol", "Name", "HotKey" };
-                int[] bounds = { 100, 100, 100 };
+                int[] bounds = { 100, 250, 100 };
 
+                ColumnViewerToolTipSupport.enableFor(viewer, ToolTip.NO_RECREATE);
      
                 TableViewerColumn col = createTableViewerColumn(titles[0], bounds[0], 0);
                 col.setLabelProvider(new ColumnLabelProvider() {
@@ -75,6 +81,25 @@ public class LyapasSymbols extends ViewPart {
                                 LSymbol p = (LSymbol) element;
                                 return p.getSymbol();
                         }
+                        
+                        public String getToolTipText(Object element) {
+                            return ((LSymbol)element).getToolTips();
+                          }
+
+                          @Override
+                          public Point getToolTipShift(Object object) {
+                            return new Point(5, 5);
+                          }
+
+                          @Override
+                          public int getToolTipDisplayDelayTime(Object object) {
+                            return 100; // msec
+                          }
+
+                          @Override
+                          public int getToolTipTimeDisplayed(Object object) {
+                            return 5000; // msec
+                          }
                 });
 
        

@@ -5,20 +5,22 @@ import java.beans.PropertyChangeSupport;
 
 public class LSymbol {
 
-	 private String Symbol;
+	private String Symbol;
     private String Name;
     private String HotKey;
+    private String ToolTips;
     
     private PropertyChangeSupport propertyChangeSupport = new PropertyChangeSupport(this);
     
     public LSymbol() {
     }
 
-    public LSymbol(String Symbol, String Name, String HotKey) {
+    public LSymbol(String Symbol, String Name, String HotKey, String ToolTips) {
             super();
             this.Symbol = Symbol;
             this.Name = Name;
             this.HotKey = HotKey;
+            this.ToolTips = ToolTips;
     }
 
     public void addPropertyChangeListener(String propertyName,
@@ -41,6 +43,10 @@ public class LSymbol {
     public String getName() {
             return Name;
     }
+    
+    public String getToolTips() {
+        return ToolTips;
+}
 
 
     public void setSynmbol(String Symbol) {
