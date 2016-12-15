@@ -22,7 +22,7 @@ public class LyapasSymbols extends ViewPart {
       //  public static final String ID = "de.vogella.jface.tableviewer.view";
 
         private TableViewer viewer;
-        // static fields to hold the images1
+        // static fields to hold the images
        
         public void createPartControl(Composite parent) {
                 GridLayout layout = new GridLayout(2, false);
