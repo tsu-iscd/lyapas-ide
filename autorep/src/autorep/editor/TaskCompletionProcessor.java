@@ -24,9 +24,13 @@ public class TaskCompletionProcessor implements IContentAssistProcessor {
             List<ICompletionProposal> completionProposals = new ArrayList<ICompletionProposal>();
 
     			char s = ' ';
-    			String c;;
+    			char x = ' ';
+    			char z = ' ';
+    			String c;
 
     				try {
+    					z = doc.getChar(offset-3);
+						x = doc.getChar(offset-2);
 						s = doc.getChar(offset-1);
 					} catch (BadLocationException e) {
 						
@@ -38,28 +42,77 @@ public class TaskCompletionProcessor implements IContentAssistProcessor {
     					 
     				}
     				
-    				if(s == '<'){
+    				if( x == '=' && s == '>' ){
+   					 c = "⇒";
+   					 completionProposals.add(new CompletionProposal(c, offset-2, 2, c.length()));
+   					 
+   				}
+    				
+    			 if((z == '<' && x == '=' && s == '>')){
+   					 c = "⇔";
+   					 completionProposals.add(new CompletionProposal(c, offset-3, 3, c.length()));
+   					 
+   				}
+    			 if( x == '<' && s == '='){
+   					 c = "⇔";
+   					 completionProposals.add(new CompletionProposal(c, offset-2, 2, c.length()));
+   					 
+   				}
+    			 if( s == '<'  ){
    					 c = "⇔";
    					 completionProposals.add(new CompletionProposal(c, offset-1, 1, c.length()));
    					 c = "≪";
-  					 completionProposals.add(new CompletionProposal(c, offset-1, 1, c.length()));
-  					 c = "≤ ";
  					 completionProposals.add(new CompletionProposal(c, offset-1, 1, c.length()));
-  				   
-   				   }
+ 					 c = "≤ ";
+					 completionProposals.add(new CompletionProposal(c, offset-1, 1, c.length()));
+   					 
+   				}
+    			
+    			 if( x == '<' && s == '2'){
+   					 c = "≪";
+   					 completionProposals.add(new CompletionProposal(c, offset-2, 2, c.length()));
+   					 
+   				}
+    			 if( x == '<' && s == '='){
+   					 c = "≤";
+   					 completionProposals.add(new CompletionProposal(c, offset-2, 2, c.length()));
+   					 
+   				}
+    			 
+    			 
+    			 
     				if(s == '-'){
    					c = "¬";
    					 completionProposals.add(new CompletionProposal(c, offset-1, 1, c.length()));
-   					c = "⇻ ";
-  					 completionProposals.add(new CompletionProposal(c, offset-1, 1, c.length()));
   					c = "→ ";
   					 completionProposals.add(new CompletionProposal(c, offset-1, 1, c.length()));
    				}
     				
+    				if( x == '-' && s == '|'){
+      					 c = "¬";
+      					 completionProposals.add(new CompletionProposal(c, offset-2, 2, c.length()));
+      					 
+      				}
+    				if( x == '-' && s == '>'){
+     					 c = "→";
+     					 completionProposals.add(new CompletionProposal(c, offset-2, 2, c.length()));
+     					 
+     				}
+    				
+    				
+    				
+    				
     				if(s == 'V'){
       					 c = "∨ ";
       					 completionProposals.add(new CompletionProposal(c, offset-1, 1, c.length()));
+      					c = "∇ ";
+     					 completionProposals.add(new CompletionProposal(c, offset-1, 1, c.length()));
       				}
+    				if( x == 'V' && s == '-'){
+    					 c = "∇ ";
+    					 completionProposals.add(new CompletionProposal(c, offset-2, 2, c.length()));
+    					 
+    				}
     				
     				if(s == '+'){
       					 c = "⊕ ";
@@ -72,21 +125,67 @@ public class TaskCompletionProcessor implements IContentAssistProcessor {
       					c = "≥ ";
      					 completionProposals.add(new CompletionProposal(c, offset-1, 1, c.length()));
       				}
-    				
-    				if(s == '\\'){
-      					 c = "∇ ";
-      					 completionProposals.add(new CompletionProposal(c, offset-1, 1, c.length()));
+    				if( x == '>' && s == '2'){
+   					 c = "≫ ";
+   					 completionProposals.add(new CompletionProposal(c, offset-2, 2, c.length()));
+   					 
+   				}
+    				if( x == '>' && s == '='){
+      					 c = "≥ ";
+      					 completionProposals.add(new CompletionProposal(c, offset-2, 2, c.length()));
+      					 
       				}
     				
-    				if(s == '/'){
-      					 c = "∆ ";
-      					 completionProposals.add(new CompletionProposal(c, offset-1, 1, c.length()));
-      				}
+    				if(s == '^'){
+     					 c = "∆ ";
+     					 completionProposals.add(new CompletionProposal(c, offset-1, 1, c.length()));
+     					c = "⇕ ";
+    					 completionProposals.add(new CompletionProposal(c, offset-1, 1, c.length()));
+     				}
+    				
+    				if( x == '^' && s == '-'){
+     					 c = "∆ ";
+     					 completionProposals.add(new CompletionProposal(c, offset-2, 2, c.length()));
+     					 
+     				}
+    				
+    				if( x == '^' && s == 'V'){
+     					 c = "⇕ ";
+     					 completionProposals.add(new CompletionProposal(c, offset-2, 2, c.length()));
+     					 
+     				}
     				
     				if(s == '$'){
-      					 c = "§ ";
-      					 completionProposals.add(new CompletionProposal(c, offset-1, 1, c.length()));
-      				}
+     					 c = "§ ";
+     					 completionProposals.add(new CompletionProposal(c, offset-1, 1, c.length()));
+     				}
+    				
+    				if(s == '0'){
+     					 c = "↪ ";
+     					 completionProposals.add(new CompletionProposal(c, offset-1, 1, c.length()));
+     					}
+   				
+   				    if(s == '1'){
+     					 c = "↦ ";
+     					 completionProposals.add(new CompletionProposal(c, offset-1, 1, c.length()));
+     				}
+   				    
+   				    if(s == '~'){
+ 					 c = "⁻ ";
+ 					 completionProposals.add(new CompletionProposal(c, offset-1, 1, c.length()));
+ 				}
+    				
+   				 if(s == '!'){
+ 					 c = "≠ ";
+ 					 completionProposals.add(new CompletionProposal(c, offset-1, 1, c.length()));
+ 				}
+   				 
+   				if( x == '!' && s == '='){
+					 c = "≠ ";
+					 completionProposals.add(new CompletionProposal(c, offset-2, 2, c.length()));
+					 
+				}
+
     				
     				if(s == '|'){
       					 c = "↑ ";
@@ -97,27 +196,57 @@ public class TaskCompletionProcessor implements IContentAssistProcessor {
      					 completionProposals.add(new CompletionProposal(c, offset-1, 1, c.length()));
      					c = "⇞ ";
     					 completionProposals.add(new CompletionProposal(c, offset-1, 1, c.length()));
+    					 c = "⇻ ";
+    					 completionProposals.add(new CompletionProposal(c, offset-1, 1, c.length()));
       				}
     				
-    				if(s == '0'){
-      					 c = "↪ ";
-      					 completionProposals.add(new CompletionProposal(c, offset-1, 1, c.length()));
-      					}
+    				if( x == '|' && s == '^'){
+   					 c = "↑ ";
+   					 completionProposals.add(new CompletionProposal(c, offset-2, 2, c.length()));
+   					c = "⇑ ";
+  					 completionProposals.add(new CompletionProposal(c, offset-2, 2, c.length()));
+   					 
+   				}
+    				if( x == '|' && s == 'V'){
+   					 c = "⇓ ";
+   					 completionProposals.add(new CompletionProposal(c, offset-2, 2, c.length()));
+   					 
+   				}
     				
-    				if(s == '1'){
-      					 c = "↦ ";
-      					 completionProposals.add(new CompletionProposal(c, offset-1, 1, c.length()));
+    				
+       				if( x == '|' && s == '='){
+      					 c = "⇻ ";
+      					 completionProposals.add(new CompletionProposal(c, offset-2, 2, c.length()));
+      					 
+      				}
+       				if( x == '|' && s == '>'){
+     					 c = "⇞ ";
+     					 completionProposals.add(new CompletionProposal(c, offset-2, 2, c.length()));
+     					 
+     				}
+       				
+       				if((z == '|' && x == '^' && s == '|')){
+      					 c = "⇑";
+      					 completionProposals.add(new CompletionProposal(c, offset-3, 3, c.length()));
+      					 
+      				}
+       				if((z == '|' && x == 'V' && s == '|')){
+      					 c = "⇓";
+      					 completionProposals.add(new CompletionProposal(c, offset-3, 3, c.length()));
+      					 
+      				}
+       				if((z == '|' && x == '=' && s == '^')){
+      					 c = "⇞";
+      					 completionProposals.add(new CompletionProposal(c, offset-3, 3, c.length()));
+      					 
       				}
     				
-    				if(s == '!'){
-     					 c = "≠ ";
-     					 completionProposals.add(new CompletionProposal(c, offset-1, 1, c.length()));
-     				}
     				
-    				if(s == '~'){
-     					 c = "⁻ ";
-     					 completionProposals.add(new CompletionProposal(c, offset-1, 1, c.length()));
-     				}
+    				
+    				
+    				
+    				
+
     				   
     			
             return completionProposals.toArray(new ICompletionProposal[completionProposals.size()]);
