@@ -7,13 +7,10 @@ Bundle-Activator: autorep.Activator
 Require-Bundle: org.eclipse.ui,
  org.eclipse.core.runtime,
  org.eclipse.jface.text,
- org.eclipse.ui.editors,
- org.eclipse.ui,
- org.eclipse.core.runtime,
- org.eclipse.ui,
- org.eclipse.core.runtime
+ org.eclipse.ui.editors
 Bundle-ActivationPolicy: lazy
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Import-Package: org.eclipse.core.resources
+Export-Package: org.antlr.runtime
 Bundle-ClassPath: .,
  antlr-4.5.3-complete.jar.jar
