@@ -52,9 +52,9 @@ public class LyapasBuilder extends IncrementalProjectBuilder {
 
 	protected IProject[] build(int kind, Map args, IProgressMonitor monitor)
 			throws CoreException {
-		ILog log = Activator.getDefault().getLog();
-		IStatus status = new Status(IStatus.INFO, Activator.PLUGIN_ID, "BUILD");
-		log.log(status);
+		//ILog log = Activator.getDefault().getLog();
+		//IStatus status = new Status(IStatus.INFO, Activator.PLUGIN_ID, "BUILD");
+		//log.log(status);
 
 		fullBuild(monitor);
 		
@@ -91,6 +91,7 @@ public class LyapasBuilder extends IncrementalProjectBuilder {
 			lyapasParser parser = new lyapasParser(tokens);
 
 			// И запускаем первое правило грамматики!!!
+		
 		
 			parser.function();
 			
