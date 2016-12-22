@@ -2,6 +2,49 @@
 <?eclipse version="3.4"?>
 <plugin>
 
+	<extension
+	 	    id="LyapasBuilder"
+	 	    name="Lyapas Project Builder"
+	 	    point="org.eclipse.core.resources.builders">
+	 	 <builder
+	 	       hasNature="true">
+		     <run
+		           class="autorep.builder.LyapasBuilder">
+	   	  </run>
+	 	 </builder>
+	</extension>
+
+	<extension
+	         id="LyapasNature"
+	         name="Lyapas Project Nature"
+	         point="org.eclipse.core.resources.natures">
+	  <runtime>
+	     <run
+	           class="autorep.builder.LyapasNature">
+	     </run>
+	  </runtime>
+	  <builder
+	        id="autorep.LyapasBuilder">
+	  </builder>
+	</extension>
+	
+	<extension
+	         point="org.eclipse.ui.popupMenus">
+	      <objectContribution
+	            adaptable="true"
+	            objectClass="org.eclipse.core.resources.IProject"
+	            nameFilter="*"
+	            id="autorep.contribution1">
+	         <action
+	               label="Add/Remove Lyapas Nature"
+	               class="autorep.builder.ToggleNatureAction"
+	               menubarPath="additions"
+	               enablesFor="+"
+	               id="autorep.addRemoveNatureAction">
+	         </action>
+	      </objectContribution>
+	</extension>
+
    <extension
          point="org.eclipse.ui.editors">
       <editor
