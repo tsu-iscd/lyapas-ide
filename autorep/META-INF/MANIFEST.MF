@@ -1,7 +1,7 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: Autorep
-Bundle-SymbolicName: autorep; singleton = "true"
+Bundle-SymbolicName: autorep; singleton := true
 Bundle-Version: 1.0.0.qualifier
 Bundle-Activator: autorep.Activator
 Require-Bundle: org.eclipse.ui,
@@ -11,6 +11,8 @@ Require-Bundle: org.eclipse.ui,
  org.eclipse.ui,
  org.eclipse.core.runtime,
  org.eclipse.ui,
+ org.eclipse.core.runtime,
+ org.eclipse.ui,
  org.eclipse.core.runtime
 Bundle-ActivationPolicy: lazy
-Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Bundle-RequiredExecutionEnvironment: JavaSE-1.7

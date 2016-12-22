@@ -5,12 +5,13 @@
    <extension
          point="org.eclipse.ui.editors">
       <editor
-            name="LYaPAS Editor"
+            class="autorep.editor.LyapasEditor"
+            contributorClass="org.eclipse.ui.texteditor.BasicTextEditorActionContributor"
+            default="false"
             extensions="l"
             icon="icons/logo.gif"
-            contributorClass="org.eclipse.ui.texteditor.BasicTextEditorActionContributor"
-            class="autorep.editor.LyapasEditor"
-            id="autorep.editor.LyapasEditor">
+            id="autorep.editor.LyapasEditor"
+            name="LYaPAS Editor">
       </editor>
    </extension>
    <extension

@@ -7,8 +7,11 @@ import org.eclipse.ui.editors.text.TextEditor;
 
 public class LyapasEditor extends TextEditor {
 
+public static final String ID = "autorep.editor.LyapasEditor";
+	
 	public LyapasEditor() {
 		super();
+		setSourceViewerConfiguration(new TaskSourceViewerConfiguration());
 	}
 	@Override
 	public void init(final IEditorSite site, final IEditorInput input) throws PartInitException {
