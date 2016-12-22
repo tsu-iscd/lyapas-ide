@@ -1,16 +1,17 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: Autorep
-Bundle-SymbolicName: autorep; singleton = "true"
+Bundle-SymbolicName: autorep;singleton:=true
 Bundle-Version: 1.0.0.qualifier
 Bundle-Activator: autorep.Activator
 Require-Bundle: org.eclipse.ui,
  org.eclipse.core.runtime,
  org.eclipse.jface.text,
- org.eclipse.ui.editors
+ org.eclipse.ui.editors,
+ org.eclipse.core.resources
 Bundle-ActivationPolicy: lazy
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Import-Package: org.eclipse.core.resources
-Export-Package: org.antlr.runtime
+Export-Package: org.antlr.runtime;uses:="org.antlr.runtime.tree,org.antlr.runtime.misc"
 Bundle-ClassPath: .,
- antlr-4.5.3-complete.jar.jar
+ antlr-4.5.3-complete.jar
