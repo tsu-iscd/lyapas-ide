@@ -7,13 +7,14 @@ import org.eclipse.core.runtime.ILog;
 import org.eclipse.core.runtime.IStatus;
 import org.eclipse.core.runtime.Status;
 import org.eclipse.ui.*;
+import org.eclipse.ui.texteditor.AbstractTextEditor;
+import org.eclipse.ui.texteditor.IDocumentProvider;
+import org.eclipse.ui.texteditor.ITextEditor;
 import org.eclipse.jface.text.IDocument;
-//import org.eclipse.ui.IWorkbenchWindow;
-//import org.eclipse.ui.handlers.HandlerUtil;
-//import org.eclipse.jface.dialogs.MessageDialog;
 
 /**
  * Our sample handler extends AbstractHandler, an IHandler base class.
+ * 
  * @see org.eclipse.core.commands.IHandler
  * @see org.eclipse.core.commands.AbstractHandler
  */
@@ -29,19 +30,26 @@ public class LyapasHandler extends AbstractHandler {
 	 * from the application context.
 	 */
 	public Object execute(ExecutionEvent event) throws ExecutionException {
-		/*
-		IWorkbenchWindow window = HandlerUtil.getActiveWorkbenchWindowChecked(event);
-		MessageDialog.openInformation(
-				window.getShell(),
-				"Test12",
-				"Hello, Eclipse world"); */
+
+		IEditorPart part = Activator.getDefault().getWorkbench().getActiveWorkbenchWindow().getActivePage().getActiveEditor();
+		if (!(part instanceof AbstractTextEditor) || !part.getTitle().endsWith(".lyapas")) return null;
 		
-		IEditorPart editor = Activator.getDefault().getWorkbench().getActiveWorkbenchWindow().getActivePage().getActiveEditor();
-		IDocument doc = (IDocument)editor.getAdapter(IDocument.class);
-		String text = doc.toString(); // пока что не работает, нужно разобраться как получить текст из редактора
+		ITextEditor editor = (ITextEditor)part;
+		IDocumentProvider dp = editor.getDocumentProvider();
+		IDocument doc = dp.getDocument(editor.getEditorInput());
 		
-		String message = Autoformatter.Format(text);
-		
+		int offset = 0;
+		int length = doc.getLength();
+		String text;
+		String message;
+		try {
+			text = doc.get(offset, length);
+			message = Autoformatter.Format(text);
+			doc.set(message);
+		} catch(Exception e){
+			return null;
+		}
+
 		ILog log = Activator.getDefault().getLog();
 		IStatus status = new Status(IStatus.INFO, Activator.PLUGIN_ID, message);
 		log.log(status);
